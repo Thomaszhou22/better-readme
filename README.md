@@ -1,10 +1,37 @@
 # 📝 Better README
 
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-green)
+![Platform](https://img.shields.io/badge/platform-OpenClaw%20%7C%20Claude%20Code%20%7C%20Cursor-purple)
+![ClawHub](https://img.shields.io/badge/ClawHub-published-orange)
+
 **English** | **[中文](README.zh-CN.md)**
 
 Audit, generate, and optimize project README files with quality scoring, template matching, and multilingual support. Works with any project type — libraries, CLI tools, web apps, agent skills, and datasets.
 
+**1 skill** for README quality. **5 project types** supported. **8 scoring dimensions**. **0 dependencies**.
+
 **The problem:** Most README files are written as an afterthought. No "why" section, no visual demo, 10-step setup guides nobody finishes. Better README fixes this — score your existing README, get a template tailored to your project type, and generate bilingual docs in one pass.
+
+## Table of Contents
+
+<details>
+<summary>Click to expand</summary>
+
+- [Install](#install)
+- [Quick Start](#quick-start)
+- [How It Works](#how-it-works)
+  - [Step 1: Classify](#step-1-classify)
+  - [Step 2: Score](#step-2-score)
+  - [Step 3: Generate](#step-3-generate)
+  - [Step 4: Pre-Publish Checklist](#step-4-pre-publish-checklist)
+- [Template Types](#template-types)
+- [Agent Integration](#agent-integration)
+- [Files](#files)
+- [Compatibility](#compatibility)
+- [License](#license)
+
+</details>
 
 ## Install
 
