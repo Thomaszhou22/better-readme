@@ -37,14 +37,15 @@ Or just tell your AI agent: **"Check my README"** — it'll handle the rest.
 ## How It Works
 
 ```
-  ┌──────────────┐     ┌──────────────┐     ┌──────────────────┐
-  │  1. Classify │────▶│  2. Score    │────▶│  3. Generate     │
-  │  What type?  │     │  How good?   │     │  Fix + bilingual │
-  └──────────────┘     └──────────────┘     └──────────────────┘
-         ▲                                         │
-         │        Agent fills template             │
-         └─────────────────────────────────────────┘
-                   Re-score to verify
+  ┌────────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────────┐
+  │  0. Onboarding │────▶│  1. Classify │────▶│  2. Score    │────▶│  3. Generate     │
+  │  First run?    │     │  What type?  │     │  How good?   │     │  Fix + improve   │
+  └────────────────┘     └──────────────┘     └──────────────┘     └──────────────────┘
+         │                                                                   │
+         │        Offer to evaluate existing repos                           │
+         │                    Agent fills template                            │
+         └───────────────────────────────────────────────────────────────────┘
+                                Re-score to verify
 ```
 
 ### Step 1: Classify
@@ -75,13 +76,23 @@ Automatically detects your project type:
 | Community & links | 10 | Contributing, Issues, Discussions |
 | Pre-publish readiness | 10 | TOC, roadmap, changelog |
 
+### Step 0: Onboarding (first use only)
+
+When activated for the first time, the skill:
+1. Introduces its capabilities (score, improve, create READMEs)
+2. Asks: _"Want me to evaluate the READMEs of your existing repos?"_
+3. If yes → fetches your GitHub repos, runs batch scoring, highlights the weakest ones, and offers to fix them
+4. If no → proceeds to normal workflow
+5. Records onboarding as complete (won't repeat)
+
 ### Step 3: Generate
 
 - Pick the matching template from `references/templates.md`
 - Scan your project for real data (name, install command, license, features)
 - Fill the template — no placeholder text
-- Generate both `README.md` (English) and `README.zh-CN.md` (Chinese)
-- Language toggle at the top
+- Generate `README.md` in **English** by default
+- After generation, asks if you need another language version (e.g., Chinese, Japanese)
+- Only generates additional language files on request, with a language toggle at the top
 
 ### Step 4: Pre-Publish Checklist
 
@@ -109,12 +120,13 @@ Tell your agent any of these:
 - *"My README sucks, fix it"*
 
 The agent will:
-1. Detect project type
-2. Run the audit script
-3. Load the matching template
-4. Scan your codebase for real data
-5. Generate bilingual READMEs
-6. Run the pre-publish checklist
+1. **First use**: Offer to audit your existing repos' READMEs (onboarding)
+2. Detect project type
+3. Run the audit script
+4. Load the matching template
+5. Scan your codebase for real data
+6. Generate an English README (ask if you need other languages)
+7. Run the pre-publish checklist
 
 ## Files
 

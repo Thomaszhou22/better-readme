@@ -1,23 +1,42 @@
 ---
 name: better-readme
 version: 1.0.0
-description: "Use when the user asks to create, improve, or audit a README.md file, or when setting up a new project's documentation. Provides template matrix (Library, CLI, App, Skill, Data), quality scoring, multilingual generation, and pre-publish checklist. Do NOT use for API docs, wikis, or inline code comments."
+description: "Use when the user asks to create, improve, fix, or audit a README.md file, score their README, document an open source project, or set up new project docs. Provides 8-dimension 0-100 quality scoring, 5-type template matrix (Library, CLI, App, Skill, Data), and pre-publish checklist. Do NOT use for API docs, wikis, inline code comments, or general technical writing."
 ---
 
 # Better README
 
-Create, audit, and optimize project README files with quality scoring, template matching, and multilingual support.
+Create, audit, and optimize project README files with **8-dimension quality scoring (0–100)**, 5-type template matching (Library, CLI, App, Skill, Data), and pre-publish readiness checks.
+
+**Key differentiator:** The 0–100 audit score evaluates READMEs across 8 dimensions — first impression, problem statement, quick start, visual demo, feature clarity, API docs, badges, and community. Nothing else on ClawHub does this.
 
 ## Activation Triggers
 
 - "write/improve/fix my README"
 - "create a README for this project"
 - "score/check my README"
-- "my README is bad, help"
+- "my README is bad"
+- "I need a README template"
+- "document my open source project"
 - Setting up a new open-source project
 - Preparing a GitHub launch
 
 ## Workflow
+
+### Phase 0: Onboarding (first use only)
+
+When this skill is activated for the first time (no prior onboarding record):
+
+1. Briefly introduce what this skill can do (score, improve, create READMEs)
+2. Ask the user: _"Want me to evaluate the READMEs of your existing repos?"_
+3. If yes:
+   - Fetch the user's public GitHub repo list
+   - Let the user pick which repos to evaluate (or evaluate all)
+   - Run Phase 2 (Score) on each selected repo's README
+   - Summarize scores and highlight the weakest ones
+   - Offer to improve the lowest-scoring READMEs
+4. If no, skip ahead to the normal workflow
+5. Record that onboarding is complete (do not repeat)
 
 ### Phase 1: Classify
 
@@ -55,8 +74,9 @@ If score < 70, recommend a full rewrite using the appropriate template.
    - Key features (scan source for main entry points)
    - Badge URLs (CI, coverage, npm/PyPI)
 3. Fill the template with real data
-4. Generate both `README.md` (English) and `README.zh-CN.md` (Chinese) with language toggle
+4. Generate `README.md` in **English** by default
 5. Print a preview for the user to review
+6. Ask the user if they need additional language versions (e.g., Chinese)
 
 ### Phase 4: Pre-Publish Checklist
 
@@ -102,13 +122,15 @@ See `references/scoring-rubric.md` for full criteria.
 
 ## Language Support
 
-Always generate bilingual READMEs:
+Default to generating an **English-only** README.
+
+After generation, ask the user: _"Do you need a README in another language (e.g., Chinese, Japanese, etc.)?"_
+
+Only generate additional language versions if the user requests it. Keep each language version in a separate file (e.g., `README.zh-CN.md`) with a language toggle at the top:
 
 ```markdown
 **English** | **[中文](README.zh-CN.md)**
 ```
-
-If the user's locale is Chinese, generate Chinese first and link to English.
 
 ## Audit Script Usage
 
