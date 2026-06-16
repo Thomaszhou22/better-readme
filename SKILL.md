@@ -1,6 +1,6 @@
 ---
 name: better-readme
-version: 1.0.0
+version: 1.1.0
 description: "Use when the user asks to create, improve, fix, or audit a README.md file, score their README, document an open source project, or set up new project docs. Provides 8-dimension 0-100 quality scoring, 5-type template matrix (Library, CLI, App, Skill, Data), and pre-publish checklist. Do NOT use for API docs, wikis, inline code comments, or general technical writing."
 ---
 
