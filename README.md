@@ -1,6 +1,7 @@
 # 📝 Better README
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install-orange)](https://clawhub.ai/thomaszhou22/better-readme)
 ![Version](https://img.shields.io/badge/version-1.1.0-green)
 ![Platform](https://img.shields.io/badge/platform-OpenClaw%20%7C%20Claude%20Code%20%7C%20Cursor-purple)
 ![ClawHub](https://img.shields.io/badge/ClawHub-published-orange)
